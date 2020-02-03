@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url = "file:./dev.db"
+  url = "***"
 }
 
 generator photonjs {

@@ -7,6 +7,7 @@ import {
   Label,
   RedwoodFormError,
 } from '@redwoodjs/web'
+import { useForm } from 'react-hook-form'
 import { useMutation } from '@redwoodjs/web'
 import BlogLayout from 'src/layouts/BlogLayout'
 
@@ -19,9 +20,12 @@ const CREATE_CONTACT = gql`
 `
 
 const ContactPage = (props) => {
+  const formMethods = useForm()
+
   const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
     onCompleted: () => {
       alert('Thank you for your submission!')
+      formMethods.reset()
     },
   })
 
@@ -32,6 +36,7 @@ const ContactPage = (props) => {
   return (
     <BlogLayout>
       <RedwoodForm
+        formMethods={formMethods}
         onSubmit={onSubmit}
         validation={{ mode: 'onBlur' }}
         error={error}

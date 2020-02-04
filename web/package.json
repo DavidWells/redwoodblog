@@ -10,7 +10,7 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@redwoodjs/scripts": "^0.0.1-alpha.23"
+    "@redwoodjs/scripts": "^0.0.1-alpha.24"
   },
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",

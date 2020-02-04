@@ -1,33 +1,33 @@
-import { Photon } from '@prisma/photon'
+import { PrismaClient } from '@prisma/client'
 
-const photon = new Photon()
+const db = new PrismaClient()
 
 const Posts = {
   posts: () => {
-    return photon.posts.findMany()
+    return db.post.findMany()
   },
 
   post: ({ id }) => {
-    return photon.posts.findOne({
+    return db.post.findOne({
       where: { id: id },
     })
   },
 
   createPost: ({ input }) => {
-    return photon.posts.create({
+    return db.post.create({
       data: input,
     })
   },
 
   updatePost: ({ id, input }) => {
-    return photon.posts.update({
+    return db.post.update({
       data: input,
       where: { id: id },
     })
   },
 
   deletePost: ({ id }) => {
-    return photon.posts.delete({
+    return db.post.delete({
       where: { id: id },
     })
   },

@@ -3,8 +3,8 @@ datasource DS {
   url = env("DB_HOST")
 }
 
-generator photonjs {
-  provider = "photonjs"
+generator db {
+  provider = "prisma-client-js"
 }
 
 model Post {

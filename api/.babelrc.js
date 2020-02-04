@@ -20,6 +20,7 @@ module.exports = {
           src: './src'
         }
       }
-    ]
+    ],
+    "babel-plugin-macros"
   ]
 };

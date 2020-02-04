@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@redwoodjs/api": "^0.0.1-alpha.23",
-    "@prisma/photon": "2.0.0-preview019"
+    "@redwoodjs/api": "^0.0.1-alpha.24.0.1",
+    "@prisma/client": "2.0.0-preview021"
   },
   "devDependencies": {
-    "@redwoodjs/dev-server": "^0.0.1-alpha.23",
-    "prisma2": "2.0.0-preview019"
+    "@redwoodjs/dev-server": "^0.0.1-alpha.24",
+    "prisma2": "2.0.0-preview021"
   },
   "scripts": {
     "dev": "yarn dev-server",

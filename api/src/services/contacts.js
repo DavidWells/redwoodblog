@@ -1,7 +1,7 @@
-import { Photon } from '@prisma/photon'
+import { PrismaClient } from '@prisma/client'
 import { UserInputError } from '@redwoodjs/api'
 
-const photon = new Photon()
+const db = new PrismaClient()
 
 const validate = (input) => {
   if (input.email && !input.email.match(/[^@]+@[^\.]+\..+/)) {
@@ -15,12 +15,12 @@ const validate = (input) => {
 
 const Contacts = {
   contacts: () => {
-    return photon.contacts.findMany()
+    return db.contacts.findMany()
   },
 
   createContact: ({ input }) => {
     validate(input)
-    return photon.contacts.create({ data: input })
+    return db.contacts.create({ data: input })
   },
 }
 

@@ -1,15 +1,12 @@
-import { server, makeMergedSchema } from '@redwoodjs/api'
-import { Photon } from '@prisma/photon'
+import importAll from '@redwoodjs/api/importAll.macro'
+import { server, makeMergedSchema, makeServices } from '@redwoodjs/api'
 
-import * as contacts from 'src/graphql/contacts.sdl'
-import * as posts from 'src/graphql/posts.sdl'
-
-// Include new types here, ie. const schema = makeMergedSchema([users])
-const schema = makeMergedSchema([contacts, posts])
-
-const photon = new Photon()
+const schemas = importAll('api', 'graphql')
+const services = importAll('api', 'services')
 
 export const handler = server({
-  schema,
-  context: { photon },
+  schema: makeMergedSchema({
+    schemas,
+    services: makeServices({ services }),
+  }),
 }).createHandler()

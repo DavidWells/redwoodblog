@@ -15,12 +15,12 @@ const validate = (input) => {
 
 const Contacts = {
   contacts: () => {
-    return db.contacts.findMany()
+    return db.contact.findMany()
   },
 
   createContact: ({ input }) => {
     validate(input)
-    return db.contacts.create({ data: input })
+    return db.contact.create({ data: input })
   },
 }
 
